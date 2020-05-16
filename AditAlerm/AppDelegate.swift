@@ -27,9 +27,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func createMenu() -> NSMenu {
         let menu = NSMenu()
         
-        let aditMenuItem = NSMenuItem()
-        aditMenuItem.title = "打刻"
-        aditMenuItem.action = #selector(adit)
+        let oepnJobcanMenuItem = NSMenuItem()
+        oepnJobcanMenuItem.title = "ジョブカンを開く"
+        oepnJobcanMenuItem.action = #selector(oepnJobcan)
         
         let changeClockOutTimeMenuItem = NSMenuItem()
         changeClockOutTimeMenuItem.title = "退勤時刻変更"
@@ -39,14 +39,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         quitMenuItem.title = "終了"
         quitMenuItem.action = #selector(quitApp)
         
-        menu.addItem(aditMenuItem)
+        menu.addItem(oepnJobcanMenuItem)
         menu.addItem(changeClockOutTimeMenuItem)
         menu.addItem(quitMenuItem)
         return menu
     }
     
-    @objc private func adit() {
-        // TODO: adit automatically by using Sellenium
+    @objc private func oepnJobcan() {
+        // TODO: open Jobcan
     }
     
     @objc private func changeClockOutTime() {
