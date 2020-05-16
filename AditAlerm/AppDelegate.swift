@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func quitApp() {
-        // TODO: quit this app
+        NSApplication.shared.terminate(self)
     }
 }
 
