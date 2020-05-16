@@ -13,11 +13,14 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusBarItem: NSStatusItem!
+    var popover: NSPopover!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setupNotificationCenter()
         
         setupStatusBar()
+        
+        setupPopover()
     }
     
     private func setupNotificationCenter() {
@@ -34,6 +37,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             self.statusBarItem.menu = createMenu()
         }
+    }
+    
+    private func setupPopover() {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 340, height: 240)
+        popover.behavior = .transient
+        self.popover = popover
+        
+        let contentView = ClockInView(popover: popover)
+        popover.contentViewController = NSHostingController(rootView: contentView)
     }
     
     private func createMenu() -> NSMenu {
