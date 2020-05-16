@@ -15,7 +15,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        setupNotificationCenter()
+        
         setupStatusBar()
+    }
+    
+    private func setupNotificationCenter() {
+        let notificationCenter = NSWorkspace.shared.notificationCenter
+        notificationCenter.addObserver(self, selector: #selector(applicationWillSleep), name: NSWorkspace.willSleepNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(applicationDidWake), name: NSWorkspace.didWakeNotification, object: nil)
     }
     
     private func setupStatusBar() {
@@ -47,6 +55,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(changeClockOutTimeMenuItem)
         menu.addItem(quitMenuItem)
         return menu
+    }
+    
+    @objc private func applicationWillSleep() {
+        print("sleep...")
+    }
+
+    @objc private func applicationDidWake() {
+        print("wake up!")
     }
     
     @objc private func oepnJobcan() {
