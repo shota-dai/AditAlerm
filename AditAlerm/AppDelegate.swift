@@ -15,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
     
+    var lastWakeTime = Date()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setupNotificationCenter()
         
@@ -70,12 +72,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return menu
     }
     
+    private func dateFormat(date: Date) -> String {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .none
+        return f.string(from: date)
+    }
+    
     @objc private func applicationWillSleep() {
         print("sleep...")
     }
 
     @objc private func applicationDidWake() {
         print("wake up!")
+        
+        if dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
+            if let button = self.statusBarItem.button {
+                if !self.popover.isShown {
+                    self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                }
+            }
+        }
+        
+        lastWakeTime = Date()
     }
     
     @objc private func oepnJobcan() {
