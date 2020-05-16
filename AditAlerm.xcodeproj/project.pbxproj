@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0562F38C246FD8920069243D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562F38B246FD8920069243D /* AppDelegate.swift */; };
+		0562F38E246FD8920069243D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562F38D246FD8920069243D /* ContentView.swift */; };
+		0562F390246FD8950069243D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0562F38F246FD8950069243D /* Assets.xcassets */; };
+		0562F393246FD8950069243D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0562F392246FD8950069243D /* Preview Assets.xcassets */; };
+		0562F396246FD8950069243D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0562F394246FD8950069243D /* Main.storyboard */; };
+		0562F3A2246FD8950069243D /* AditAlermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562F3A1246FD8950069243D /* AditAlermTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0562F39E246FD8950069243D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0562F380246FD8920069243D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0562F387246FD8920069243D;
+			remoteInfo = AditAlerm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0562F388246FD8920069243D /* AditAlerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AditAlerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0562F38B246FD8920069243D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0562F38D246FD8920069243D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0562F38F246FD8950069243D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0562F392246FD8950069243D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0562F395246FD8950069243D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0562F397246FD8950069243D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0562F398246FD8950069243D /* AditAlerm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AditAlerm.entitlements; sourceTree = "<group>"; };
+		0562F39D246FD8950069243D /* AditAlermTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AditAlermTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0562F3A1246FD8950069243D /* AditAlermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AditAlermTests.swift; sourceTree = "<group>"; };
+		0562F3A3246FD8950069243D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0562F385246FD8920069243D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0562F39A246FD8950069243D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0562F37F246FD8920069243D = {
+			isa = PBXGroup;
+			children = (
+				0562F38A246FD8920069243D /* AditAlerm */,
+				0562F3A0246FD8950069243D /* AditAlermTests */,
+				0562F389246FD8920069243D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0562F389246FD8920069243D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0562F388246FD8920069243D /* AditAlerm.app */,
+				0562F39D246FD8950069243D /* AditAlermTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0562F38A246FD8920069243D /* AditAlerm */ = {
+			isa = PBXGroup;
+			children = (
+				0562F38B246FD8920069243D /* AppDelegate.swift */,
+				0562F38D246FD8920069243D /* ContentView.swift */,
+				0562F38F246FD8950069243D /* Assets.xcassets */,
+				0562F394246FD8950069243D /* Main.storyboard */,
+				0562F397246FD8950069243D /* Info.plist */,
+				0562F398246FD8950069243D /* AditAlerm.entitlements */,
+				0562F391246FD8950069243D /* Preview Content */,
+			);
+			path = AditAlerm;
+			sourceTree = "<group>";
+		};
+		0562F391246FD8950069243D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0562F392246FD8950069243D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0562F3A0246FD8950069243D /* AditAlermTests */ = {
+			isa = PBXGroup;
+			children = (
+				0562F3A1246FD8950069243D /* AditAlermTests.swift */,
+				0562F3A3246FD8950069243D /* Info.plist */,
+			);
+			path = AditAlermTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0562F387246FD8920069243D /* AditAlerm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0562F3A6246FD8950069243D /* Build configuration list for PBXNativeTarget "AditAlerm" */;
+			buildPhases = (
+				0562F384246FD8920069243D /* Sources */,
+				0562F385246FD8920069243D /* Frameworks */,
+				0562F386246FD8920069243D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AditAlerm;
+			productName = AditAlerm;
+			productReference = 0562F388246FD8920069243D /* AditAlerm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0562F39C246FD8950069243D /* AditAlermTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0562F3A9246FD8950069243D /* Build configuration list for PBXNativeTarget "AditAlermTests" */;
+			buildPhases = (
+				0562F399246FD8950069243D /* Sources */,
+				0562F39A246FD8950069243D /* Frameworks */,
+				0562F39B246FD8950069243D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0562F39F246FD8950069243D /* PBXTargetDependency */,
+			);
+			name = AditAlermTests;
+			productName = AditAlermTests;
+			productReference = 0562F39D246FD8950069243D /* AditAlermTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0562F380246FD8920069243D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Shota Dai";
+				TargetAttributes = {
+					0562F387246FD8920069243D = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					0562F39C246FD8950069243D = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 0562F387246FD8920069243D;
+					};
+				};
+			};
+			buildConfigurationList = 0562F383246FD8920069243D /* Build configuration list for PBXProject "AditAlerm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0562F37F246FD8920069243D;
+			productRefGroup = 0562F389246FD8920069243D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0562F387246FD8920069243D /* AditAlerm */,
+				0562F39C246FD8950069243D /* AditAlermTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0562F386246FD8920069243D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0562F396246FD8950069243D /* Main.storyboard in Resources */,
+				0562F393246FD8950069243D /* Preview Assets.xcassets in Resources */,
+				0562F390246FD8950069243D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0562F39B246FD8950069243D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0562F384246FD8920069243D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0562F38E246FD8920069243D /* ContentView.swift in Sources */,
+				0562F38C246FD8920069243D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0562F399246FD8950069243D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0562F3A2246FD8950069243D /* AditAlermTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0562F39F246FD8950069243D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0562F387246FD8920069243D /* AditAlerm */;
+			targetProxy = 0562F39E246FD8950069243D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0562F394246FD8950069243D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0562F395246FD8950069243D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0562F3A4246FD8950069243D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0562F3A5246FD8950069243D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		0562F3A7246FD8950069243D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AditAlerm/AditAlerm.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"AditAlerm/Preview Content\"";
+				DEVELOPMENT_TEAM = WEV5SJ475D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AditAlerm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = shota.dai.AditAlerm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0562F3A8246FD8950069243D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AditAlerm/AditAlerm.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"AditAlerm/Preview Content\"";
+				DEVELOPMENT_TEAM = WEV5SJ475D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AditAlerm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = shota.dai.AditAlerm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0562F3AA246FD8950069243D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WEV5SJ475D;
+				INFOPLIST_FILE = AditAlermTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = shota.dai.AditAlermTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AditAlerm.app/Contents/MacOS/AditAlerm";
+			};
+			name = Debug;
+		};
+		0562F3AB246FD8950069243D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WEV5SJ475D;
+				INFOPLIST_FILE = AditAlermTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = shota.dai.AditAlermTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AditAlerm.app/Contents/MacOS/AditAlerm";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0562F383246FD8920069243D /* Build configuration list for PBXProject "AditAlerm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0562F3A4246FD8950069243D /* Debug */,
+				0562F3A5246FD8950069243D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0562F3A6246FD8950069243D /* Build configuration list for PBXNativeTarget "AditAlerm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0562F3A7246FD8950069243D /* Debug */,
+				0562F3A8246FD8950069243D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0562F3A9246FD8950069243D /* Build configuration list for PBXNativeTarget "AditAlermTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0562F3AA246FD8950069243D /* Debug */,
+				0562F3AB246FD8950069243D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0562F380246FD8920069243D /* Project object */;
+}
