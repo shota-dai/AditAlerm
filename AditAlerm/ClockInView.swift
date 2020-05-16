@@ -32,7 +32,7 @@ struct ClockInView: View {
                 .frame(height: 40)
             HStack {
                 Button(action: {
-                    // TODO: save selected clock out time
+                    self.saveClockOutTime()
                     
                     self.popover?.close()
                 }){
@@ -42,7 +42,8 @@ struct ClockInView: View {
                 Spacer()
                     .frame(width: 40)
                 Button(action: {
-                    // TODO: save selected clock out time
+                    self.saveClockOutTime()
+                    
                     // TODO: adit automatically
                 }){
                     Text("打刻する")
@@ -52,6 +53,11 @@ struct ClockInView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private func saveClockOutTime() {
+        let ud = UserDefaults.standard
+        ud.set(self.selectedDate, forKey: "ClockOutTime")
     }
 }
 
