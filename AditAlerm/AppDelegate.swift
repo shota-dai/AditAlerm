@@ -35,6 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
+        Setting.shared.saveClockOutTime(nil)
+        
         cancelScheduledProcesses()
     }
     
@@ -51,6 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         scheduleClockOutNotification(clockOutTime)
 
         workItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
+            Setting.shared.saveClockOutTime(nil)
+            
             if let button = self.statusBarItem.button {
                 self.clockOutPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             }
