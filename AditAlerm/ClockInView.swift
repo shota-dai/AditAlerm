@@ -12,8 +12,7 @@ struct ClockInView: View {
     
     let popover: NSPopover?
     
-    // define clock out time as Now+9h
-    @State private var selectedDate = Date(timeIntervalSinceNow: 60*60*9)
+    @State private var selectedDate = Date()
     
     var body: some View {
         VStack {
@@ -25,7 +24,7 @@ struct ClockInView: View {
             Text("退勤予定時刻を設定後、\n「打刻する」もしくは「閉じる」を押してください。")
             Spacer()
                 .frame(height: 20)
-            DatePicker(selection: $selectedDate, in: Date()..., displayedComponents: .hourAndMinute) {
+            DatePicker(selection: $selectedDate, in: Date()...generateFinalClockOutTime()!, displayedComponents: .hourAndMinute) {
                 Text("退勤予定時刻")
             }
             Spacer()
@@ -55,6 +54,21 @@ struct ClockInView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private func generateFinalClockOutTime() -> Date? {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        return calendar.date(
+            from: DateComponents(
+                year: calendar.component(.year, from: date),
+                month: calendar.component(.month, from: date),
+                day: calendar.component(.day, from: date),
+                hour: 21,
+                minute: 15
+            )
+        )
     }
     
     private func saveClockOutTime() {
