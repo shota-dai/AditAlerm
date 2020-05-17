@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         applicationDidWake()
     }
     
+    func applicationWillTerminate(_ aNotification: Notification) {
+        cancelScheduledProcesses()
+    }
+    
     func popoverDidClose(_ aNotification: Notification) {
         print("clock in popover closed")
         
