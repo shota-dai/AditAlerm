@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     var statusBarItem: NSStatusItem!
     var clockInPopover: NSPopover!
     var clockOutPopover: NSPopover!
+    var changeClockOutTimePopover: NSPopover!
     
     var lastWakeTime = Date(timeIntervalSinceNow: -60*60*24)
     
@@ -25,6 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         
         setupClockInPopover()
         setupClockOutPopover()
+        setupChangeClockOutTimePopover()
         
         applicationDidWake()
     }
@@ -88,6 +90,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         self.clockOutPopover.contentViewController = NSHostingController(rootView: contentView)
     }
     
+    private func setupChangeClockOutTimePopover() {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 300, height: 180)
+        popover.behavior = .transient
+        popover.delegate = self
+        self.changeClockOutTimePopover = popover
+        
+        let contentView = ChangeClockOutTimeView(popover: popover)
+        self.changeClockOutTimePopover.contentViewController = NSHostingController(rootView: contentView)
+    }
+    
     private func createMenu() -> NSMenu {
         let menu = NSMenu()
         
@@ -148,7 +161,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     @objc private func changeClockOutTime() {
-        // TODO: change clock out time
+        if let button = self.statusBarItem.button {            
+            self.changeClockOutTimePopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+        }
     }
     
     @objc private func quitApp() {
