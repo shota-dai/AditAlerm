@@ -19,6 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     
     var lastWakeTime = Date(timeIntervalSinceNow: -60*60*24)
     
+    var notification: NSUserNotification?
+    var workItem: DispatchWorkItem?
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setupNotificationCenter()
         
@@ -39,9 +42,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         }
         print("clockOutTime: \(clockOutTime)")
 
+        cancelScheduledProcesses()
+
         scheduleClockOutNotification(clockOutTime)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
+        workItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
             if let button = self.statusBarItem.button {
                 self.clockOutPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             }
@@ -133,8 +138,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         notification.title = "退勤予定時刻の10分前です！"
         notification.informativeText = "時刻に変更がある場合はアプリメニューから変更できます。"
         notification.deliveryDate = Calendar.current.date(byAdding: .minute, value: -10, to: clockOutTime)
+        self.notification = notification
+        
         NSUserNotificationCenter.default.delegate = self
         NSUserNotificationCenter.default.scheduleNotification(notification)
+    }
+    
+    private func cancelScheduledProcesses() {
+        if let n = notification {
+            NSUserNotificationCenter.default.removeScheduledNotification(n)
+        }
+        notification = nil
+        
+        if let item = workItem {
+            item.cancel()
+        }
+        workItem = nil
     }
     
     @objc private func applicationWillSleep() {
