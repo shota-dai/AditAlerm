@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
     
-    var lastWakeTime = Date()
+    var lastWakeTime = Date(timeIntervalSinceNow: -60*60*24)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setupNotificationCenter()
@@ -23,6 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         setupStatusBar()
         
         setupPopover()
+        
+        applicationDidWake()
     }
     
     func popoverDidClose(_ aNotification: Notification) {
