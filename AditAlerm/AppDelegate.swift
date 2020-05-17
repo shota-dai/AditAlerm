@@ -10,7 +10,7 @@ import Cocoa
 import SwiftUI
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
 
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
@@ -23,6 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupStatusBar()
         
         setupPopover()
+    }
+    
+    func popoverDidClose(_ aNotification: Notification) {
+        print("popover closed")
     }
     
     private func setupNotificationCenter() {
@@ -45,6 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 340, height: 240)
         popover.behavior = .transient
+        popover.delegate = self
         self.popover = popover
         
         let contentView = ClockInView(popover: popover)
