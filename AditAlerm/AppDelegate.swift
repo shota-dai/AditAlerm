@@ -126,7 +126,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     @objc private func oepnJobcan() {
-        // TODO: open Jobcan
+        let result = NSWorkspace.shared.open(URL(string: "http://jobcan.jp/login/pc-employee/?client_id=isana")!)
+        print("opening JOBCAN is successful?: \(result)")
     }
     
     @objc private func changeClockOutTime() {
