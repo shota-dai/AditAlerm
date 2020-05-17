@@ -19,7 +19,7 @@ class Setting {
         return ud.object(forKey: keyClockOutTime) as? Date
     }
     
-    func saveClockOutTime(date: Date) {
+    func saveClockOutTime(_ date: Date?) {
         let ud = UserDefaults.standard
         ud.set(date, forKey: keyClockOutTime)
     }
