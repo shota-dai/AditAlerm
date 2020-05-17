@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
 
     var statusBarItem: NSStatusItem!
     var clockInPopover: NSPopover!
+    var clockOutPopover: NSPopover!
     
     var lastWakeTime = Date(timeIntervalSinceNow: -60*60*24)
     
@@ -23,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         setupStatusBar()
         
         setupClockInPopover()
+        setupClockOutPopover()
         
         applicationDidWake()
     }
@@ -68,6 +70,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         
         let contentView = ClockInView(popover: popover)
         self.clockInPopover.contentViewController = NSHostingController(rootView: contentView)
+    }
+    
+    private func setupClockOutPopover() {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 340, height: 200)
+        popover.behavior = .transient
+        self.clockOutPopover = popover
+        
+        let contentView = ClockOutView(popover: popover)
+        self.clockOutPopover.contentViewController = NSHostingController(rootView: contentView)
     }
     
     private func createMenu() -> NSMenu {
