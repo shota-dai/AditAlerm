@@ -13,7 +13,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNotificationCenterDelegate {
 
     var statusBarItem: NSStatusItem!
-    var popover: NSPopover!
+    var clockInPopover: NSPopover!
     
     var lastWakeTime = Date(timeIntervalSinceNow: -60*60*24)
     
@@ -22,13 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         
         setupStatusBar()
         
-        setupPopover()
+        setupClockInPopover()
         
         applicationDidWake()
     }
     
     func popoverDidClose(_ aNotification: Notification) {
-        print("popover closed")
+        print("clock in popover closed")
         
         let ud = UserDefaults.standard
         guard let clockOutTime = ud.object(forKey: "ClockOutTime") as? Date else {
@@ -59,15 +59,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         }
     }
     
-    private func setupPopover() {
+    private func setupClockInPopover() {
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 340, height: 240)
         popover.behavior = .transient
         popover.delegate = self
-        self.popover = popover
+        self.clockInPopover = popover
         
         let contentView = ClockInView(popover: popover)
-        popover.contentViewController = NSHostingController(rootView: contentView)
+        self.clockInPopover.contentViewController = NSHostingController(rootView: contentView)
     }
     
     private func createMenu() -> NSMenu {
@@ -116,8 +116,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         
         if dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
             if let button = self.statusBarItem.button {
-                if !self.popover.isShown {
-                    self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                if !self.clockInPopover.isShown {
+                    self.clockInPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
                 }
             }
         }
