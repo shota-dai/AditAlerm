@@ -10,7 +10,7 @@ import Cocoa
 import SwiftUI
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNotificationCenterDelegate {
 
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
@@ -29,6 +29,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     
     func popoverDidClose(_ aNotification: Notification) {
         print("popover closed")
+        
+        let ud = UserDefaults.standard
+        guard let clockOutTime = ud.object(forKey: "ClockOutTime") as? Date else {
+            return
+        }
+        print("clockOutTime: \(clockOutTime)")
+
+        scheduleClockOutNotification(clockOutTime)
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
     }
     
     private func setupNotificationCenter() {
@@ -84,6 +96,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         f.dateStyle = .long
         f.timeStyle = .none
         return f.string(from: date)
+    }
+    
+    private func scheduleClockOutNotification(_ clockOutTime: Date) {
+        let notification = NSUserNotification()
+        notification.title = "退勤予定時刻の10分前です！"
+        notification.informativeText = "時刻に変更がある場合はアプリメニューから変更できます。"
+        notification.deliveryDate = Calendar.current.date(byAdding: .minute, value: -10, to: clockOutTime)
+        NSUserNotificationCenter.default.delegate = self
+        NSUserNotificationCenter.default.scheduleNotification(notification)
     }
     
     @objc private func applicationWillSleep() {
