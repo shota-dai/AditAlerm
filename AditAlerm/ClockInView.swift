@@ -65,8 +65,9 @@ struct ClockInView: View {
                 year: calendar.component(.year, from: date),
                 month: calendar.component(.month, from: date),
                 day: calendar.component(.day, from: date),
-                hour: 21,
-                minute: 15
+                hour: 23,
+                minute: 59,
+                second: 59
             )
         )
     }
