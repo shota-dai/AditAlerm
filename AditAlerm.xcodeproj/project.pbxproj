@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		0562F393246FD8950069243D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0562F392246FD8950069243D /* Preview Assets.xcassets */; };
 		0562F396246FD8950069243D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0562F394246FD8950069243D /* Main.storyboard */; };
 		0562F3A2246FD8950069243D /* AditAlermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562F3A1246FD8950069243D /* AditAlermTests.swift */; };
+		0562F3AD246FF2BD0069243D /* ClockInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562F3AC246FF2BD0069243D /* ClockInView.swift */; };
+		0562F3B024701BEC0069243D /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0562F3AF24701BEC0069243D /* PythonKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 		0562F39D246FD8950069243D /* AditAlermTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AditAlermTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0562F3A1246FD8950069243D /* AditAlermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AditAlermTests.swift; sourceTree = "<group>"; };
 		0562F3A3246FD8950069243D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0562F3AC246FF2BD0069243D /* ClockInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0562F3B024701BEC0069243D /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,7 @@
 				0562F397246FD8950069243D /* Info.plist */,
 				0562F398246FD8950069243D /* AditAlerm.entitlements */,
 				0562F391246FD8950069243D /* Preview Content */,
+				0562F3AC246FF2BD0069243D /* ClockInView.swift */,
 			);
 			path = AditAlerm;
 			sourceTree = "<group>";
@@ -119,6 +124,9 @@
 			dependencies = (
 			);
 			name = AditAlerm;
+			packageProductDependencies = (
+				0562F3AF24701BEC0069243D /* PythonKit */,
+			);
 			productName = AditAlerm;
 			productReference = 0562F388246FD8920069243D /* AditAlerm.app */;
 			productType = "com.apple.product-type.application";
@@ -169,6 +177,9 @@
 				Base,
 			);
 			mainGroup = 0562F37F246FD8920069243D;
+			packageReferences = (
+				0562F3AE24701BEC0069243D /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
 			productRefGroup = 0562F389246FD8920069243D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -204,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0562F3AD246FF2BD0069243D /* ClockInView.swift in Sources */,
 				0562F38C246FD8920069243D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +484,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0562F3AE24701BEC0069243D /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0562F3AF24701BEC0069243D /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0562F3AE24701BEC0069243D /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0562F380246FD8920069243D /* Project object */;
 }
