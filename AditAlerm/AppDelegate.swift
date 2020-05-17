@@ -39,6 +39,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         print("clockOutTime: \(clockOutTime)")
 
         scheduleClockOutNotification(clockOutTime)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
+            if let button = self.statusBarItem.button {
+                self.clockOutPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            }
+        }
     }
     
     func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
