@@ -108,11 +108,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     @objc private func applicationWillSleep() {
-        print("sleep...")
+        print("sleep... - \(Date())")
     }
 
     @objc private func applicationDidWake() {
-        print("wake up!")
+        print("wake up! - \(Date())")
         
         if dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
             if let button = self.statusBarItem.button {
