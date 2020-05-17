@@ -31,7 +31,7 @@ struct ClockInView: View {
                 .frame(height: 40)
             HStack {
                 Button(action: {
-                    self.saveClockOutTime()
+                    Setting.shared.saveClockOutTime(date: self.selectedDate)
                     
                     self.popover?.close()
                 }){
@@ -41,7 +41,7 @@ struct ClockInView: View {
                 Spacer()
                     .frame(width: 40)
                 Button(action: {
-                    self.saveClockOutTime()
+                    Setting.shared.saveClockOutTime(date: self.selectedDate)
 
                     self.popover?.close()
                     
@@ -69,11 +69,6 @@ struct ClockInView: View {
                 minute: 15
             )
         )
-    }
-    
-    private func saveClockOutTime() {
-        let ud = UserDefaults.standard
-        ud.set(self.selectedDate, forKey: "ClockOutTime")
     }
 }
 

@@ -34,8 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     func popoverDidClose(_ aNotification: Notification) {
         print("clock in popover closed")
         
-        let ud = UserDefaults.standard
-        guard let clockOutTime = ud.object(forKey: "ClockOutTime") as? Date else {
+        guard let clockOutTime = Setting.shared.getClockOutTime() else {
             return
         }
         print("clockOutTime: \(clockOutTime)")
