@@ -171,10 +171,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     @objc private func applicationDidWake() {
         print("wake up! - \(Date())")
         
-        if dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
+        if !self.clockInPopover.isShown && dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
             if let button = self.statusBarItem.button {
-                if !self.clockInPopover.isShown {
+                if Setting.shared.getClockOutTime() == nil {
                     self.clockInPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                }
+                // execute process after 3 seconds when waking up from sleep
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.clockInPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                    }
                 }
             }
         }
