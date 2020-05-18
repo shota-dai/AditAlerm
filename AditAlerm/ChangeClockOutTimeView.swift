@@ -11,7 +11,7 @@ import SwiftUI
 struct ChangeClockOutTimeView: View {
     let popover: NSPopover?
     
-    @State private var selectedDate = Setting.shared.getClockOutTime() ?? Date()
+    @State private var selectedDate = Setting.clockOutTime ?? Date()
     
     var body: some View {
         VStack {
@@ -34,7 +34,7 @@ struct ChangeClockOutTimeView: View {
                 Spacer()
                     .frame(width: 40)
                 Button(action: {
-                    Setting.shared.saveClockOutTime(self.selectedDate)
+                    Setting.clockOutTime = self.selectedDate
 
                     self.popover?.close()
                 }){

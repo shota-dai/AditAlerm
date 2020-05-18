@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        Setting.shared.saveClockOutTime(nil)
+        Setting.clockOutTime = nil
         
         cancelScheduledProcesses()
     }
@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     func popoverDidClose(_ aNotification: Notification) {
         print("clock in popover closed")
         
-        guard let clockOutTime = Setting.shared.getClockOutTime() else {
+        guard let clockOutTime = Setting.clockOutTime else {
             return
         }
         print("clockOutTime: \(clockOutTime)")
@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         scheduleClockOutNotification(clockOutTime)
 
         workItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
-            Setting.shared.saveClockOutTime(nil)
+            Setting.clockOutTime = nil
             
             if let button = self.statusBarItem.button {
                 self.clockOutPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
@@ -173,7 +173,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         
         if !self.clockInPopover.isShown && dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
             if let button = self.statusBarItem.button {
-                if Setting.shared.getClockOutTime() == nil {
+                if Setting.clockOutTime == nil {
                     self.clockInPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
                 }
                 // execute process after 3 seconds when waking up from sleep

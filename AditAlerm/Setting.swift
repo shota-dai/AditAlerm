@@ -8,19 +8,7 @@
 
 import Foundation
 
-class Setting {
-    static let shared = Setting()
+struct Setting {
     private init() {}
-    
-    private let keyClockOutTime = "ClockOutTime"
-
-    func getClockOutTime() -> Date? {
-        let ud = UserDefaults.standard
-        return ud.object(forKey: keyClockOutTime) as? Date
-    }
-    
-    func saveClockOutTime(_ date: Date?) {
-        let ud = UserDefaults.standard
-        ud.set(date, forKey: keyClockOutTime)
-    }
+    static var clockOutTime: Date?
 }
