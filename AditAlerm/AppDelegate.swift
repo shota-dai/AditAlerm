@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
             Setting.clockOutTime = nil
             
             if let button = self.statusBarItem.button {
-                self.clockOutPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                self.showClockOutPopover(view: button)
             }
         }
     }
@@ -87,9 +87,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         popover.behavior = .transient
         popover.delegate = self
         self.clockInPopover = popover
-        
-        let contentView = ClockInView(popover: popover)
+    }
+    
+    private func showClockInPopover(view: NSView) {
+        let contentView = ClockInView(popover: self.clockInPopover)
         self.clockInPopover.contentViewController = NSHostingController(rootView: contentView)
+        
+        self.clockInPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
     }
     
     private func setupClockOutPopover() {
@@ -97,9 +101,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         popover.contentSize = NSSize(width: 340, height: 200)
         popover.behavior = .transient
         self.clockOutPopover = popover
-        
-        let contentView = ClockOutView(popover: popover)
+    }
+
+    private func showClockOutPopover(view: NSView) {
+        let contentView = ClockOutView(popover: self.clockOutPopover)
         self.clockOutPopover.contentViewController = NSHostingController(rootView: contentView)
+        
+        self.clockOutPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
     }
     
     private func setupChangeClockOutTimePopover() {
@@ -108,9 +116,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         popover.behavior = .transient
         popover.delegate = self
         self.changeClockOutTimePopover = popover
-        
-        let contentView = ChangeClockOutTimeView(popover: popover)
+    }
+
+    private func showChangeClockOutTimePopover(view: NSView) {
+        let contentView = ChangeClockOutTimeView(popover: self.changeClockOutTimePopover)
         self.changeClockOutTimePopover.contentViewController = NSHostingController(rootView: contentView)
+        
+        self.changeClockOutTimePopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
     }
     
     private func createMenu() -> NSMenu {
@@ -174,12 +186,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         if !self.clockInPopover.isShown && dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
             if let button = self.statusBarItem.button {
                 if Setting.clockOutTime == nil {
-                    self.clockInPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                    showClockInPopover(view: button)
                 }
                 // execute process after 3 seconds when waking up from sleep
                 else {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        self.clockInPopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                        self.showClockInPopover(view: button)
                     }
                 }
             }
@@ -194,7 +206,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     
     @objc private func changeClockOutTime() {
         if let button = self.statusBarItem.button {            
-            self.changeClockOutTimePopover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            showChangeClockOutTimePopover(view: button)
         }
     }
     
