@@ -31,4 +31,4 @@
 2. [selenium](https://selenium-python.readthedocs.io/)をインストールする。
 3. [ChromeDriver](https://chromedriver.chromium.org/)を[ここ](https://chromedriver.storage.googleapis.com/index.html?path=81.0.4044.138/)からダウンロードする。
 4. ダウンロードした`chromedriver`を`/usr/local/bin/`に置く。
-5. chromedriverに権限を与える。
+5. `sudo xattr -d com.apple.quarantine /usr/local/bin/chromedriver`を実行する。
