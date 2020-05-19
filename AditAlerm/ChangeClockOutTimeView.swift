@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ChangeClockOutTimeView: View {
+    
     let popover: NSPopover?
     
     @State private var selectedDate = Setting.clockOutTime ?? Date()

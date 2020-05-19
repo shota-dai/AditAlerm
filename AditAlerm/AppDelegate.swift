@@ -81,50 +81,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         }
     }
     
-    private func setupClockInPopover() {
-        let popover = NSPopover()
-        popover.contentSize = NSSize(width: 340, height: 240)
-        popover.behavior = .transient
-        popover.delegate = self
-        self.clockInPopover = popover
-    }
-    
-    private func showClockInPopover(view: NSView) {
-        let contentView = ClockInView(popover: self.clockInPopover)
-        self.clockInPopover.contentViewController = NSHostingController(rootView: contentView)
-        
-        self.clockInPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
-    }
-    
-    private func setupClockOutPopover() {
-        let popover = NSPopover()
-        popover.contentSize = NSSize(width: 340, height: 200)
-        popover.behavior = .transient
-        self.clockOutPopover = popover
-    }
-
-    private func showClockOutPopover(view: NSView) {
-        let contentView = ClockOutView(popover: self.clockOutPopover)
-        self.clockOutPopover.contentViewController = NSHostingController(rootView: contentView)
-        
-        self.clockOutPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
-    }
-    
-    private func setupChangeClockOutTimePopover() {
-        let popover = NSPopover()
-        popover.contentSize = NSSize(width: 300, height: 180)
-        popover.behavior = .transient
-        popover.delegate = self
-        self.changeClockOutTimePopover = popover
-    }
-
-    private func showChangeClockOutTimePopover(view: NSView) {
-        let contentView = ChangeClockOutTimeView(popover: self.changeClockOutTimePopover)
-        self.changeClockOutTimePopover.contentViewController = NSHostingController(rootView: contentView)
-        
-        self.changeClockOutTimePopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
-    }
-    
     private func createMenu() -> NSMenu {
         let menu = NSMenu()
         
@@ -146,11 +102,48 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         return menu
     }
     
-    private func dateFormat(date: Date) -> String {
-        let f = DateFormatter()
-        f.dateStyle = .long
-        f.timeStyle = .none
-        return f.string(from: date)
+    private func setupClockInPopover() {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 340, height: 240)
+        popover.behavior = .transient
+        popover.delegate = self
+        self.clockInPopover = popover
+    }
+    
+    private func setupClockOutPopover() {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 340, height: 200)
+        popover.behavior = .transient
+        self.clockOutPopover = popover
+    }
+
+    private func setupChangeClockOutTimePopover() {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 300, height: 180)
+        popover.behavior = .transient
+        popover.delegate = self
+        self.changeClockOutTimePopover = popover
+    }
+    
+    private func showClockInPopover(view: NSView) {
+        let contentView = ClockInView(popover: self.clockInPopover)
+        self.clockInPopover.contentViewController = NSHostingController(rootView: contentView)
+        
+        self.clockInPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
+    }
+
+    private func showClockOutPopover(view: NSView) {
+        let contentView = ClockOutView(popover: self.clockOutPopover)
+        self.clockOutPopover.contentViewController = NSHostingController(rootView: contentView)
+        
+        self.clockOutPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
+    }
+
+    private func showChangeClockOutTimePopover(view: NSView) {
+        let contentView = ChangeClockOutTimeView(popover: self.changeClockOutTimePopover)
+        self.changeClockOutTimePopover.contentViewController = NSHostingController(rootView: contentView)
+        
+        self.changeClockOutTimePopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
     }
     
     private func scheduleClockOutNotification(_ clockOutTime: Date) {
@@ -174,6 +167,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
             item.cancel()
         }
         workItem = nil
+    }
+    
+    private func dateFormat(date: Date) -> String {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .none
+        return f.string(from: date)
     }
     
     @objc private func applicationWillSleep() {
