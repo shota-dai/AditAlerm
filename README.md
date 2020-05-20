@@ -6,8 +6,8 @@
 # 動作環境
 
 * macOS Catalina 10.15.x
-* Google Chrome 81.0.4044.138
-  - 打刻の自動化を行う場合のみ必須
+* Google Chrome
+  - 打刻の自動化を行う場合のみ
 
 # ダウンロード
 
@@ -30,6 +30,6 @@
 ※打刻の自動化＝「打刻する」をクリックすると自動的に打刻
 1. [pip](https://pypi.org/project/pip/)をインストールする。
 2. [selenium](https://selenium-python.readthedocs.io/)をインストールする。
-3. [ChromeDriver](https://chromedriver.chromium.org/)を[ここ](https://chromedriver.storage.googleapis.com/index.html?path=81.0.4044.138/)からダウンロードする。
+3. インストールされているGoogle Chromeのバージョンと一致するChromeDriverを[ここ](https://chromedriver.chromium.org/downloads)からダウンロードする。
 4. ダウンロードした`chromedriver`を`/usr/local/bin/`に置く。
 5. `sudo xattr -d com.apple.quarantine /usr/local/bin/chromedriver`を実行する。
