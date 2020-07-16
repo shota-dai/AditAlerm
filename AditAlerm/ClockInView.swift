@@ -13,6 +13,7 @@ struct ClockInView: View {
     let popover: NSPopover?
     
     @State private var selectedDate = Date()
+    @State private var workingFromHome = true
     
     var body: some View {
         VStack {
@@ -26,6 +27,12 @@ struct ClockInView: View {
                 .frame(height: 20)
             DatePicker(selection: $selectedDate, in: Date()...generateFinalClockOutTime()!, displayedComponents: .hourAndMinute) {
                 Text("退勤予定時刻")
+            }
+            Spacer()
+                .frame(height: 20)
+            Toggle(isOn: $workingFromHome) {
+                Text("在宅勤務")
+                    .font(.system(size: 14))
             }
             Spacer()
                 .frame(height: 40)
