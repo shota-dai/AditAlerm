@@ -42,7 +42,7 @@ struct ClockOutView: View {
                 Button(action: {
                     self.popover?.close()
                     
-                    Jobcan.shared.adit(type: AditType.clockOut)
+                    Jobcan.shared.adit(type: AditType.clockOut, workingFromHome: self.workingFromHome)
                 }){
                     Text("打刻する")
                         .font(.system(size: 15))

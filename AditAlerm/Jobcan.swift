@@ -24,7 +24,7 @@ class Jobcan {
     private let noticeTextAreaId = "notice_value"
     private let logInGoogleButtonClass = "google__a"    
     
-    func adit(type: AditType) {
+    func adit(type: AditType, workingFromHome: Bool) {
         do {
             let driver = try prepareWebDriver()
 
@@ -42,10 +42,12 @@ class Jobcan {
                 return
             }
 
-            driver.find_element_by_id(noticeTextAreaId).send_keys(
-                PythonObject(stringLiteral: generateNoticeForWorkingFromHome(type: type))
-                    .decode("utf-8")
-            )
+            if workingFromHome {
+                driver.find_element_by_id(noticeTextAreaId).send_keys(
+                    PythonObject(stringLiteral: generateNoticeForWorkingFromHome(type: type))
+                        .decode("utf-8")
+                )
+            }
             
             driver.find_element_by_id(aditPushButtonId).click()
 
