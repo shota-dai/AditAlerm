@@ -21,7 +21,8 @@ class Jobcan {
     private let aditProfileName = "ForAdit"
     
     private let aditPushButtonId = "adit-button-push"
-    private let logInGoogleButtonClass = "google__a"
+    private let noticeTextAreaId = "notice_value"
+    private let logInGoogleButtonClass = "google__a"    
     
     func adit(type: AditType) {
         do {
@@ -40,6 +41,11 @@ class Jobcan {
                 
                 return
             }
+
+            driver.find_element_by_id(noticeTextAreaId).send_keys(
+                PythonObject(stringLiteral: generateNoticeForWorkingFromHome(type: type))
+                    .decode("utf-8")
+            )
             
             driver.find_element_by_id(aditPushButtonId).click()
 
@@ -90,6 +96,12 @@ class Jobcan {
         let pattern = "^(\(NSRegularExpression.escapedPattern(for: myPageUrl))).*"
         wait.WebDriverWait(driver, 60*10).until(ec.url_matches(pattern))
     }
+    
+    private func generateNoticeForWorkingFromHome(type: AditType) -> String {
+        return "在宅勤務" + (type == .clockIn ? "開始" : "終了")
+    }
+}
+
 enum AditType {
     case clockIn
     case clockOut
