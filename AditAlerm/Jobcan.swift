@@ -29,32 +29,19 @@ class Jobcan {
 
             driver.get(targetUrl)
             print("url: \(driver.current_url)")
-            
-            switch driver.current_url {
-            case PythonObject(stringLiteral: myPageUrl):
-                driver.find_element_by_id(aditPushButtonId).click()
-            
-            // when need to log in Google
-            case PythonObject(stringLiteral: redirectUrl):
-                driver.find_element_by_class_name(logInGoogleButtonClass).click()
 
-                let aditPushButtons = driver.find_elements_by_id(aditPushButtonId)
-                if aditPushButtons.count == 1 {
-                    aditPushButtons.first!.click()
-                }
-                // when not logged in Google
-                else {
-                    waitForUserLoggingInGoogle(driver: driver)
-
-                    driver.find_element_by_id(aditPushButtonId).click()
-                }
-            
-            default:
+            if driver.current_url == PythonObject(stringLiteral: redirectUrl) {
+                goToMayPage(driver: driver)
+            }
+            // when moved to unknown page
+            else if driver.current_url != PythonObject(stringLiteral: myPageUrl) {
                 driver.quit()
-                
                 open()
+                
                 return
             }
+            
+            driver.find_element_by_id(aditPushButtonId).click()
 
             // wait for completion of status update
             sleep(5)
@@ -84,6 +71,16 @@ class Jobcan {
     
     private func generateProfilePath() -> String {
         return "/Users/\(NSUserName())/Library/Application Support/Google/Chrome/\(aditProfileName)"
+    }
+    
+    private func goToMayPage(driver: PythonObject) {
+        driver.find_element_by_class_name(logInGoogleButtonClass).click()
+        
+        let aditPushButtons = driver.find_elements_by_id(aditPushButtonId)
+        // when not logged in Google
+        if aditPushButtons.isEmpty {
+            waitForUserLoggingInGoogle(driver: driver)
+        }
     }
     
     private func waitForUserLoggingInGoogle(driver: PythonObject) {
