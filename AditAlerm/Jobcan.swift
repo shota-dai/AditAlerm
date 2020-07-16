@@ -23,7 +23,7 @@ class Jobcan {
     private let aditPushButtonId = "adit-button-push"
     private let logInGoogleButtonClass = "google__a"
     
-    func adit() {
+    func adit(type: AditType) {
         do {
             let driver = try prepareWebDriver()
 
@@ -90,4 +90,7 @@ class Jobcan {
         let pattern = "^(\(NSRegularExpression.escapedPattern(for: myPageUrl))).*"
         wait.WebDriverWait(driver, 60*10).until(ec.url_matches(pattern))
     }
+enum AditType {
+    case clockIn
+    case clockOut
 }

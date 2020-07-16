@@ -34,7 +34,7 @@ struct ClockOutView: View {
                 Button(action: {
                     self.popover?.close()
                     
-                    Jobcan.shared.adit()
+                    Jobcan.shared.adit(type: AditType.clockOut)
                 }){
                     Text("打刻する")
                         .font(.system(size: 15))

@@ -45,7 +45,7 @@ struct ClockInView: View {
 
                     self.popover?.close()
                     
-                    Jobcan.shared.adit()
+                    Jobcan.shared.adit(type: AditType.clockIn)
                 }){
                     Text("打刻する")
                         .font(.system(size: 15))
