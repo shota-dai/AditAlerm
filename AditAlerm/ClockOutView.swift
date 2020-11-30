@@ -38,6 +38,10 @@ struct ClockOutView: View {
             HStack {
                 Button(action: {
                     self.popover?.close()
+                    
+                    if self.needToOpenTimeTracking {
+                        Timely.shared.open()
+                    }
                 }){
                     Text("閉じる")
                         .font(.system(size: 15))
@@ -48,6 +52,10 @@ struct ClockOutView: View {
                     self.popover?.close()
                     
                     Jobcan.shared.adit(type: AditType.clockOut, workingFromHome: self.workingFromHome)
+                    
+                    if self.needToOpenTimeTracking {
+                        Timely.shared.open()
+                    }
                 }){
                     Text("打刻する")
                         .font(.system(size: 15))
