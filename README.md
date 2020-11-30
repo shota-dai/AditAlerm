@@ -2,6 +2,7 @@
 
 * 出退勤時のポップアップ表示
 * 出退勤時の打刻支援
+  * 在宅勤務時の備考欄記入
 
 # 動作環境
 
@@ -17,9 +18,9 @@
 
 0. 打刻の自動化設定（後述）を行う。【非必須】
 1. dmgファイルをダブルクリックする。
-2. デスクトップ上の`AditAlerm_v1.0`をダブルクリックする。
+2. デスクトップ上の`AditAlerm_vN.M`をダブルクリックする。
 3. `AditAlerm.app`をアプリケーションフォルダにドラッグアンドドロップする。
-4. `AditAlerm_v1.0`ディスクを取り出した後、dmgファイルを削除する。
+4. `AditAlerm_vN.M`ディスクを取り出した後、dmgファイルを削除する。
 5. `AditAlerm.app`をダブルクリックする。
 6. ![表示されたダイアログの`OK`ボタンをクリックする。](https://github.com/shota-dai/AditAlerm/blob/master/images/AditAlerm_UnopenableDialog.png)
 7. ![システム環境設定の「セキュリティとプライバシー」の「一般」タブの`このまま開く`ボタンをクリックする。](https://github.com/shota-dai/AditAlerm/blob/master/images/AditAlerm_SystemSetting.png)
