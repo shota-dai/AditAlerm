@@ -19,6 +19,7 @@
 		0595FC3124716FBF0098D1DD /* ChangeClockOutTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595FC3024716FBF0098D1DD /* ChangeClockOutTimeView.swift */; };
 		0595FC332471741A0098D1DD /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595FC322471741A0098D1DD /* Setting.swift */; };
 		0595FC35247176D80098D1DD /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595FC34247176D80098D1DD /* DispatchQueueExtension.swift */; };
+		05A42773256CDA2B0037C967 /* Timely.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A42772256CDA2B0037C967 /* Timely.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		0595FC3024716FBF0098D1DD /* ChangeClockOutTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeClockOutTimeView.swift; sourceTree = "<group>"; };
 		0595FC322471741A0098D1DD /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		0595FC34247176D80098D1DD /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
+		05A42772256CDA2B0037C967 /* Timely.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timely.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				0595FC3024716FBF0098D1DD /* ChangeClockOutTimeView.swift */,
 				0595FC322471741A0098D1DD /* Setting.swift */,
 				0595FC34247176D80098D1DD /* DispatchQueueExtension.swift */,
+				05A42772256CDA2B0037C967 /* Timely.swift */,
 			);
 			path = AditAlerm;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				0595FC2F24714A1E0098D1DD /* Jobcan.swift in Sources */,
 				0595FC2B247148720098D1DD /* ClockOutView.swift in Sources */,
 				0595FC332471741A0098D1DD /* Setting.swift in Sources */,
+				05A42773256CDA2B0037C967 /* Timely.swift in Sources */,
 				0595FC3124716FBF0098D1DD /* ChangeClockOutTimeView.swift in Sources */,
 				0562F3AD246FF2BD0069243D /* ClockInView.swift in Sources */,
 				0595FC35247176D80098D1DD /* DispatchQueueExtension.swift in Sources */,

@@ -112,7 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     
     private func setupClockOutPopover() {
         let popover = NSPopover()
-        popover.contentSize = NSSize(width: 340, height: 240)
+        popover.contentSize = NSSize(width: 360, height: 280)
         popover.behavior = .transient
         self.clockOutPopover = popover
     }

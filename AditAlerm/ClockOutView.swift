@@ -13,6 +13,7 @@ struct ClockOutView: View {
     let popover: NSPopover?
     
     @State private var workingFromHome = true
+    @State private var needToOpenTimeTracking = true
     
     var body: some View {
         VStack {
@@ -26,6 +27,10 @@ struct ClockOutView: View {
                 .frame(height: 20)
             Toggle(isOn: $workingFromHome) {
                 Text("在宅勤務")
+                    .font(.system(size: 14))
+            }
+            Toggle(isOn: $needToOpenTimeTracking) {
+                Text("閉じるボタン押下後or打刻完了後にTimelyを開く")
                     .font(.system(size: 14))
             }
             Spacer()
