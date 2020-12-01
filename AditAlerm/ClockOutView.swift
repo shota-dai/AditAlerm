@@ -57,6 +57,8 @@ struct ClockOutView: View {
     }
     
     private func closePopover(needToAdit: Bool) {
+        Setting.isClockOutPopoverClosedExplicitly = true
+        
         self.popover?.close()
         
         if needToAdit {

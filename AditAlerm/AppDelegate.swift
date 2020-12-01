@@ -41,23 +41,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     func popoverDidClose(_ aNotification: Notification) {
-        print("clock in popover closed")
+        print("clock popover closed")
         
-        guard let clockOutTime = Setting.clockOutTime else {
-            return
-        }
-        print("clockOutTime: \(clockOutTime)")
-
-        cancelScheduledProcesses()
-
-        scheduleClockOutNotification(clockOutTime)
-
-        workItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
-            Setting.clockOutTime = nil
-            
-            if let button = self.statusBarItem.button {
-                self.showClockOutPopover(view: button)
+        if let isClockOutPopoverClosedExplicitly = Setting.isClockOutPopoverClosedExplicitly {
+            if isClockOutPopoverClosedExplicitly {
+                clockOutPopoverDidClose()
             }
+            
+            Setting.isClockOutPopoverClosedExplicitly = nil
+        } else {
+            clockInPopoverDidClose()
         }
     }
     
@@ -134,6 +127,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
 
     private func showClockOutPopover(view: NSView) {
+        Setting.isClockOutPopoverClosedExplicitly = false
+        
         let contentView = ClockOutView(popover: self.clockOutPopover)
         self.clockOutPopover.contentViewController = NSHostingController(rootView: contentView)
         
@@ -145,6 +140,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         self.changeClockOutTimePopover.contentViewController = NSHostingController(rootView: contentView)
         
         self.changeClockOutTimePopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
+    }
+    
+    private func clockInPopoverDidClose() {
+        guard let clockOutTime = Setting.clockOutTime else {
+            return
+        }
+        print("clockOutTime: \(clockOutTime)")
+
+        cancelScheduledProcesses()
+
+        scheduleClockOutNotification(clockOutTime)
+
+        workItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
+            Setting.clockOutTime = nil
+            
+            if let button = self.statusBarItem.button {
+                self.showClockOutPopover(view: button)
+            }
+        }
+    }
+    
+    private func clockOutPopoverDidClose() {
     }
     
     private func scheduleClockOutNotification(_ clockOutTime: Date) {

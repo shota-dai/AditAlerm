@@ -11,4 +11,5 @@ import Foundation
 struct Setting {
     private init() {}
     static var clockOutTime: Date?
+    static var isClockOutPopoverClosedExplicitly: Bool?
 }
