@@ -37,11 +37,7 @@ struct ClockOutView: View {
                 .frame(height: 40)
             HStack {
                 Button(action: {
-                    self.popover?.close()
-                    
-                    if self.needToOpenTimeTracking {
-                        Timely.shared.open()
-                    }
+                    self.closePopover(needToAdit: false)
                 }){
                     Text("閉じる")
                         .font(.system(size: 15))
@@ -49,13 +45,7 @@ struct ClockOutView: View {
                 Spacer()
                     .frame(width: 40)
                 Button(action: {
-                    self.popover?.close()
-                    
-                    Jobcan.shared.adit(type: AditType.clockOut, workingFromHome: self.workingFromHome)
-                    
-                    if self.needToOpenTimeTracking {
-                        Timely.shared.open()
-                    }
+                    self.closePopover(needToAdit: true)
                 }){
                     Text("打刻する")
                         .font(.system(size: 15))
@@ -64,6 +54,18 @@ struct ClockOutView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private func closePopover(needToAdit: Bool) {
+        self.popover?.close()
+        
+        if needToAdit {
+            Jobcan.shared.adit(type: AditType.clockOut, workingFromHome: self.workingFromHome)
+        }
+        
+        if self.needToOpenTimeTracking {
+            Timely.shared.open()
+        }
     }
 }
 
