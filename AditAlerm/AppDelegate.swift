@@ -214,21 +214,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         print("wake up! - \(Date())")
         
         if !self.clockInPopover.isShown && dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
-            guard let button = self.statusBarItem.button else {
-                return
-            }
-            
-            if Setting.isClockOutPopoverClosedExplicitly != nil {
-                clockOutPopoverDidClose()
-            }
-            
-            if Setting.clockOutTime == nil {
-                showClockInPopover(view: button)
-            }
-            // execute process after 3 seconds when waking up from sleep
-            else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    self.showClockInPopover(view: button)
+            if let button = self.statusBarItem.button {
+                if Setting.isClockOutPopoverClosedExplicitly != nil {
+                    clockOutPopoverDidClose()
+                }
+                
+                if Setting.clockOutTime == nil {
+                    showClockInPopover(view: button)
+                }
+                // execute process after 3 seconds when waking up from sleep
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.showClockInPopover(view: button)
+                    }
                 }
             }
         }
