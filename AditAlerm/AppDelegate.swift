@@ -170,6 +170,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     private func clockOutPopoverDidClose() {
+        if let button = self.statusBarItem.button {
+            button.image = NSImage(named: "StatusBarIcon")
+            button.action = nil
+        }
+        
+        self.statusBarItem.menu = createMenu()
     }
     
     private func scheduleClockOutNotification(_ clockOutTime: Date) {
