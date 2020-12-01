@@ -114,6 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 360, height: 280)
         popover.behavior = .transient
+        popover.delegate = self
         self.clockOutPopover = popover
     }
 
