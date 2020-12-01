@@ -43,12 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     func popoverDidClose(_ aNotification: Notification) {
         print("clock popover closed")
         
-        if let isClockOutPopoverClosedExplicitly = Setting.isClockOutPopoverClosedExplicitly {
-            if isClockOutPopoverClosedExplicitly {
-                clockOutPopoverDidClose()
-            }
-            
+        if let isClockOutPopoverClosedExplicitly = Setting.isClockOutPopoverClosedExplicitly, isClockOutPopoverClosedExplicitly {
             Setting.isClockOutPopoverClosedExplicitly = nil
+            
+            clockOutPopoverDidClose()
         } else {
             clockInPopoverDidClose()
         }
@@ -218,6 +216,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         if !self.clockInPopover.isShown && dateFormat(date: lastWakeTime) != dateFormat(date: Date()) {
             guard let button = self.statusBarItem.button else {
                 return
+            }
+            
+            if Setting.isClockOutPopoverClosedExplicitly != nil {
+                clockOutPopoverDidClose()
             }
             
             if Setting.clockOutTime == nil {
