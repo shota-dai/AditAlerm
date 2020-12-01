@@ -126,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         self.clockInPopover.show(relativeTo: view.bounds, of: view, preferredEdge: NSRectEdge.minY)
     }
 
-    private func showClockOutPopover() {
+    @objc private func showClockOutPopover() {
         guard let view = self.statusBarItem.button else {
             return
         }
@@ -159,6 +159,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         workItem = DispatchQueue.main.cancelableAsyncAfter(deadline: .now() + clockOutTime.timeIntervalSinceNow) {
             Setting.clockOutTime = nil
 
+            if let button = self.statusBarItem.button {
+                button.image = NSImage(named: "ClockOutStatusBarIcon")
+                button.action = #selector(self.showClockOutPopover)
+            }
+            self.statusBarItem.menu = nil
+            
             self.showClockOutPopover()
         }
     }
