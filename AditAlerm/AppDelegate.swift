@@ -239,7 +239,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
     }
     
     @objc private func changeClockOutTime() {
-        if let button = self.statusBarItem.button {            
+        if let button = self.statusBarItem.button {
             showChangeClockOutTimePopover(view: button)
         }
     }
@@ -248,4 +248,3 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, NSUserNot
         NSApplication.shared.terminate(self)
     }
 }
-
