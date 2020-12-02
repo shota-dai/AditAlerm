@@ -38,9 +38,7 @@ struct ClockInView: View {
                 .frame(height: 40)
             HStack {
                 Button(action: {
-                    Setting.clockOutTime = self.selectedDate
-                    
-                    self.popover?.close()
+                    self.closePopover()
                 }){
                     Text("閉じる")
                         .font(.system(size: 15))
@@ -48,9 +46,7 @@ struct ClockInView: View {
                 Spacer()
                     .frame(width: 40)
                 Button(action: {
-                    Setting.clockOutTime = self.selectedDate
-
-                    self.popover?.close()
+                    self.closePopover()
                     
                     Jobcan.shared.adit(type: AditType.clockIn, workingFromHome: self.workingFromHome)
                 }){
@@ -77,6 +73,12 @@ struct ClockInView: View {
                 second: 59
             )
         )
+    }
+    
+    private func closePopover() {
+        Setting.clockOutTime = self.selectedDate
+        
+        self.popover?.close()
     }
 }
 
