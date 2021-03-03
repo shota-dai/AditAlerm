@@ -22,7 +22,7 @@ class Jobcan {
     
     private let aditPushButtonId = "adit-button-push"
     private let noticeTextAreaId = "notice_value"
-    private let logInGoogleButtonClass = "google__a"    
+    private let logInGoogleButtonClass = "google__span"
     
     func adit(type: AditType, workingFromHome: Bool) {
         do {
